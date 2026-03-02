@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta property="og:title" content="A Very Important Question 😚">
+<meta property="og:description" content="You must choose wisely 💖">
+<meta property="og:image" content="https://erics12487254.github.io/kiss-page/preview.jpg">
+<meta property="og:url" content="https://erics12487254.github.io/kiss-page/">
+<meta property="og:type" content="website">
+    <title>Very Important Question 😚</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 100px;
+            font-family: Arial;
+            transition: 0.3s;
+        }
+
+        #yesBtn {
+            font-size: 20px;
+            padding: 10px 20px;
+            transition: 0.3s;
+        }
+
+        #noBtn {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin-left: 20px;
+            position: relative;
+        }
+
+        #message {
+            margin-top: 30px;
+            font-size: 20px;
+            color: crimson;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Will you give me a kiss Than Thar? 😚</h1>
+
+<button id="yesBtn">Yes 💖</button>
+<button id="noBtn">No 😢</button>
+
+<div id="message"></div>
+
+<script>
+    let size = 20;
+    let noClicks = 0;
+
+    const messages = [
+        "Are you sure? 🥺",
+        "Think again... 😳",
+        "You might regret this 😏",
+        "My heart is breaking 💔",
+        "Last chance... 😭",
+        "Pleaseeeee 😩",
+        "Why are you like this 😔",
+        "Just press yes already 😌"
+    ];
+
+    document.getElementById("noBtn").onclick = function() {
+
+        noClicks++;
+
+        // Make YES button bigger aggressively
+        size += 15 + (noClicks * 5);
+        document.getElementById("yesBtn").style.fontSize = size + "px";
+
+        // Random message
+        let randomMsg = messages[Math.floor(Math.random() * messages.length)];
+        document.getElementById("message").innerText = randomMsg;
+
+        // Make NO button harder to press (moves randomly)
+        this.style.position = "absolute";
+        this.style.left = Math.random() * 80 + "%";
+        this.style.top = Math.random() * 80 + "%";
+
+        // After many clicks, remove NO completely
+        if (noClicks > 7) {
+            this.style.display = "none";
+        }
+    };
+
+    document.getElementById("yesBtn").onclick = function() {
+        document.body.innerHTML = "<h1>Yayyyy 😍 Love you so much my sweetie 💖</h1>";
+    };
+</script>
+
+</body>
+</html>
